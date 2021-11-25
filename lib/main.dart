@@ -129,8 +129,8 @@ class _MyHomePageState extends State<MyHomePage>
             child: TabBarView(
               controller: tabController,
               children: [
-                isoffline ? nonet(context) : chattest(),
-                isoffline ? nonet(context) : Container(color: Colors.white)
+                isoffline ? nonet(context) : youtube(),
+                isoffline ? nonet(context) : facebook()
               ],
             ),
           ),
