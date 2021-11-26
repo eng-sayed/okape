@@ -3,8 +3,11 @@
     <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
-        android:label="okape"
+        android:label="الحاج عقبي"
         android:icon="@mipmap/ic_launcher">
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-1186173356477991~9645232837"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
