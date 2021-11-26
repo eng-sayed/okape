@@ -179,9 +179,6 @@
 //
 //
 
-
-
-
 import 'dart:async';
 import 'package:flutter_chat_types/flutter_chat_types.dart' as types;
 
@@ -190,6 +187,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
+// import 'package:getwidget/components/button/gf_icon_button.dart';
 import 'package:okape/adminchattest.dart';
 import 'package:okape/chat_screen.dart';
 import 'package:okape/constants.dart';
@@ -200,7 +198,7 @@ import 'package:okape/services/api.dart';
 import 'package:okape/services/firebase.dart';
 import 'package:okape/widgets.dart';
 import 'package:okape/youtube_webview.dart';
-
+import 'package:getwidget/getwidget.dart';
 import 'ads.dart';
 
 Future<void> main() async {
@@ -221,6 +219,7 @@ Future<void> main() async {
   print(token);
   runApp(MyApp());
 }
+
 String selectedUrl =
     'https://www.youtube.com/c/%D8%A7%D9%84%D8%B5%D9%81%D8%AD%D8%A9%D8%A7%D9%84%D8%B1%D8%B3%D9%85%D9%8A%D8%A9%D9%84%D9%84%D8%AD%D8%A7%D8%AC%D8%B9%D9%82%D8%A8%D9%8A';
 
@@ -291,9 +290,10 @@ class _MyHomePageState extends State<MyHomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: Container
-        (child: Ads(),
-      width: double.infinity,),
+      bottomNavigationBar: Container(
+        child: Ads(),
+        width: double.infinity,
+      ),
       key: scaffoldkey,
       floatingActionButton: FloatingActionButton(
         child: Icon(
@@ -302,17 +302,24 @@ class _MyHomePageState extends State<MyHomePage>
         onPressed: () {
           userName.isEmpty
               ? scaffoldkey.currentState.showBottomSheet((context) {
-            return EnterName();
-          })
+                  return EnterName();
+                })
               : navto(ChatScreen(), context);
         },
       ),
       backgroundColor: Colors.white,
       appBar: AppBar(
-        title: TabBar(
-            controller: tabController,
-           // padding: EdgeInsets.zero,
-            tabs: [Tab(text: "youtube"), Tab(text: "facebook")]),
+        backgroundColor: Colors.white,
+        title: TabBar(controller: tabController,
+            // padding: EdgeInsets.zero,
+            tabs: [
+              Tab(
+                child:Text("Youtube" ,
+          style: TextStyle(color: Colors.black),)
+              ),
+              Tab(child:Text("Facebook" ,
+              style: TextStyle(color: Colors.black),) )
+            ]),
       ),
       body: TabBarView(
         controller: tabController,
@@ -322,10 +329,8 @@ class _MyHomePageState extends State<MyHomePage>
         ],
       ),
     );
-
   }
 }
-
 
 /*   Container(
                 child: Column(

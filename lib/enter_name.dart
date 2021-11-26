@@ -67,6 +67,7 @@ class _EnterNameState extends State<EnterName> {
                     if (formkey.currentState.validate()) {
                       await createUser(controller.text, token);
                       userName = controller.text;
+                      Navigator.pop(context);
                       navto(ChatScreen(), context);
                     }
                   },
